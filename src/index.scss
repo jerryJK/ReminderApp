@@ -5,6 +5,9 @@
     align-items: center;
     background-color: lightgrey;
     height: 100vh;
+    background-image: url('./img/background-image.jpeg');
+    background-position: center;
+    background-size: cover;
 }
 
 .title {
@@ -23,4 +26,14 @@
 
 .reminder-list {
     width: 50%;
+}
+
+.list-item {
+  display: inline-block;
+}
+
+.delete-button {
+  float: right;
+  padding-left: 5px;
+  cursor: pointer;
 }

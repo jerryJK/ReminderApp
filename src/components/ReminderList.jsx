@@ -12,8 +12,11 @@ export default class ReminderList extends Component {
                 <ul className="list-group">
                     {this.props.reminders.map(elem => {
                         return (
-                            <li key={elem.id} className="list-group-item" onClick={() => this.deleteReminderById(elem.id)}>
-                                <div>{elem.text}</div>
+                            <li key={elem.id} className="list-group-item" >
+                                <div className="list-item">{elem.text}</div>
+                                <div className="list-item delete-button" onClick={() => this.deleteReminderById(elem.id)}>
+                                  &#x2715;
+                                </div>
                             </li>
                         )
                     })
