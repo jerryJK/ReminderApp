@@ -5,12 +5,13 @@ export default class ReminderForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ""
+      text: "",
+      dueDate: ""
     }
   }
 
-  adddReminder() {
-      this.props.addReminder(this.state.text);
+  addReminder() {
+      this.props.addReminder(this.state.text, this.state.dueDate);
   }
 
   render() {
@@ -23,11 +24,16 @@ export default class ReminderForm extends Component {
           value={this.state.text}
           onChange={event => this.setState({text: event.target.value})}
         />
+        <input
+          className="form-control"
+          type="datetime-local"
+          onChange={event => this.setState({dueDate: event.target.value})}
+        />
       </div>
       <button
         type="button"
         className="btn btn-success"
-        onClick={() => this.adddReminder()}
+        onClick={() => this.addReminder()}
         >
         Add reminder
       </button>

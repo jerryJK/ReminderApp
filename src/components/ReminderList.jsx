@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import moment from 'moment';
+
 
 export default class ReminderList extends Component {
 
@@ -13,7 +15,10 @@ export default class ReminderList extends Component {
                     {this.props.reminders.map(elem => {
                         return (
                             <li key={elem.id} className="list-group-item" >
-                                <div className="list-item">{elem.text}</div>
+                                <div className="list-item">
+                                  <div>{elem.text}</div>
+                                  <div><em>{moment(new Date(elem.dueDate)).fromNow()}</em></div>
+                                </div>
                                 <div className="list-item delete-button" onClick={() => this.deleteReminderById(elem.id)}>
                                   &#x2715;
                                 </div>
