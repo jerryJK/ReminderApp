@@ -1,0 +1,26 @@
+.app {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgrey;
+    height: 100vh;
+}
+
+.title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reminder-form {
+    padding-bottom: 20px;
+
+    input {
+        margin: 5px;
+    }
+}
+
+.reminder-list {
+    width: 50%;
+}
