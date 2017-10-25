@@ -3,14 +3,14 @@ import ReminderForm from './ReminderForm.jsx';
 import ReminderList from './ReminderList.jsx';
 import { connect } from 'react-redux';
 import { bindActionCreators} from 'redux';
-import { addReminder, deleteReminder, clearReminders } from '../actions';
+import { addReminder, deleteReminder, clearReminders, checkDone} from '../actions';
 
 
 
 class App extends Component {
 
     render() {
-      const {addReminder, deleteReminder, clearReminders, reminders} = this.props;
+      const {addReminder, deleteReminder, clearReminders, checkDone, reminders} = this.props;
 
         return (
             <div className="app">
@@ -18,8 +18,8 @@ class App extends Component {
                   ReminderApp
               </div>
               <ReminderForm addReminder={addReminder}/>
-              <ReminderList reminders={reminders} deleteReminder={deleteReminder}/>
-              <button className="btn btn-danger" onClick={() => this.props.clearReminders()}>
+              <ReminderList reminders={reminders} deleteReminder={deleteReminder} checkDone={checkDone}/>
+              <button className="btn btn-danger" onClick={clearReminders}>
                 Clear reminders
               </button>
             </div>
@@ -28,7 +28,7 @@ class App extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({addReminder, deleteReminder, clearReminders} ,dispatch)
+    return bindActionCreators({addReminder, deleteReminder,checkDone, clearReminders} ,dispatch)
 }
 
 function mapStateToProps(state) {

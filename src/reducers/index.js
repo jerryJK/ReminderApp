@@ -1,4 +1,4 @@
-import {ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS} from "../constants";
+import {ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS, CHECK_DONE} from "../constants";
 import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 const reminder = action => {
@@ -18,6 +18,16 @@ const deleteReminder = (state, id) => {
     return newState;
 };
 
+const checkDone = (state, id) => {
+    let newState =  state.map(elem => {
+          if(elem.id === id){
+            elem.checkDone = !elem.checkDone;
+          }
+          return elem;
+    });
+    return newState;
+};
+
 const reminders = (state = [], action) => {
     let reminders = null;
     state = read_cookie('reminders');
@@ -31,6 +41,11 @@ const reminders = (state = [], action) => {
             reminders = deleteReminder(state,action.id);
             bake_cookie('reminders',reminders);
             console.log(reminders);
+            return reminders;
+        case CHECK_DONE:
+            reminders = checkDone(state,action.id);
+            console.log(reminders);
+            bake_cookie('reminders',reminders);
             return reminders;
         case CLEAR_REMINDERS:
             reminders = [];
