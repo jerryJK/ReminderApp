@@ -1,3 +1,3 @@
 ## Reminder
 
-React-Redux application
+Simple React-Redux application with bootstrap and sfcookies.
