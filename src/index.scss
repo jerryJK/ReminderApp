@@ -1,13 +1,14 @@
+body {
+  background-color: lightgrey;
+}
+
 .app {
     padding-top: 50px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: lightgrey;
-    height: 100vh;
-    background-image: url('./img/background-image.jpeg');
-    background-position: center;
-    background-size: cover;
+    min-height: 100vh;
 }
 
 .title {
@@ -49,5 +50,16 @@
     &:hover{
       transform: scale(1.5);
     }
+}
+
+@media (min-width: 760px) {
+
+  body {
+    background-image: url('./img/background-image.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 
 }
