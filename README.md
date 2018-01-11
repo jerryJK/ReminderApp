@@ -1,6 +1,6 @@
-## Reminder
+## ReminderApp
 
-Simple React-Redux application with bootstrap and sfcookies.
+Simple React-Redux reminder application made with bootstrap and sfcookies.
 App made with create-react-app.
 
 ### working Demo
